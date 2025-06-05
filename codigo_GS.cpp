@@ -54,6 +54,9 @@ void setup() {
   delay(2000);
   lcd.clear();
 }
+// Esta função roda uma única vez ao iniciar o Arduino. 
+// Ela configura os pinos, inicializa o display LCD e mostra uma mensagem de inicialização para o usuário.
+
 
 float lerDistanciaCm() {
   digitalWrite(TRIG_PIN, LOW);
@@ -73,6 +76,9 @@ float lerDistanciaCm() {
   }
   return distancia;
 }
+// Esta função aciona o sensor ultrassônico HC-SR04 e mede a distância até a superfície da água em centímetros. 
+// Ela retorna 400 cm como valor máximo se nada for detectado (ou erro de leitura) e 2 cm como valor mínimo confiável.
+
 
 String controlarAlertas(float nivel) {
   float nivelAtencao = alturaTotalReservatorio * LIMIAR_ATENCAO_PERCENT;
@@ -110,6 +116,10 @@ String controlarAlertas(float nivel) {
   }
   return situacaoAtual;
 }
+// Essa função determina a situação do reservatório com base no nível da água. 
+// Dependendo dos limiares definidos, ela ativa o LED correspondente e, em caso crítico, também o buzzer. 
+// Se o sensor estiver com erro, pisca o LED vermelho rapidamente como alerta.
+
 
 void exibirNoLcd(float nivelCm, float percentual, String statusMsg) {
   lcd.clear(); 
@@ -154,6 +164,9 @@ void exibirNoLcd(float nivelCm, float percentual, String statusMsg) {
     lcd.print(" ");
   }
 }
+// Esta função formata e mostra no display LCD o nível de água em centímetros, o percentual do reservatório cheio, 
+// e a situação atual (como "NIVEL SEGURO", "NIVEL CRITICO", etc.). Garante que o texto esteja alinhado corretamente.
+
 
 void loop() {
   distanciaSensorAgua = lerDistanciaCm();
@@ -186,3 +199,6 @@ void loop() {
 
   delay(1000);
 }
+// Esta função principal roda continuamente. Ela lê a distância da água, calcula o nível real e percentual,
+// define o status do sistema, exibe os dados no LCD, e imprime no monitor serial para depuração. 
+// Também aplica os alertas visuais e sonoros com base na situação atual.
