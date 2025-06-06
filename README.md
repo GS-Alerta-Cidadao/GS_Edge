@@ -43,7 +43,7 @@ Este projeto implementa um **sistema automatizado de alerta para monitoramento d
 ### 🎬 Vídeo Demonstrativo
 
 **▶️ Veja o sistema em funcionamento no YouTube:**  
-[https://youtu.be/EXEMPLO_VIDEO](https://youtu.be/EXEMPLO_VIDEO)  
+[https://youtu.be/39GnUvq20JQ](https://youtu.be/39GnUvq20JQ)  
 
 ---
 
